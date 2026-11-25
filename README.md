@@ -53,3 +53,24 @@ No tool sends emails or deletes emails/events.
 4. `list_events(days_ahead=7)` — List upcoming primary calendar events in `Asia/Jerusalem`.
 5. `find_free_slots(date, duration_minutes=30)` — Find free slots on `YYYY-MM-DD` between `08:00` and `20:00` (`Asia/Jerusalem`).
 6. `create_event(title, start, end, description="")` — Create a calendar event in `Asia/Jerusalem` (accepts ISO-8601 timestamps).
+
+## Prompts Used Today
+
+1. Check the working folder and whether it is empty.
+2. Check whether Google API credentials from lesson L05 (`client_secret*.json`, `token.json`) exist in the home directory without printing contents or modifying files.
+3. Move the downloaded `client_secret*.json` from `~/Downloads` to `~/my-private`, create a `uv` Python OAuth authentication script (`gmail.modify` and `calendar` scopes), and run it to generate `~/my-private/token.json`.
+4. Build the `gmail-calendar` MCP server in Python using `FastMCP`, `uv`, and `stdio` transport reading `GOOGLE_PRIVATE_DIR` (6 tools: `search_emails`, `read_email`, `create_draft`, `list_events`, `find_free_slots`, `create_event`; no send/delete tools; `Asia/Jerusalem` timezone; each Python file under 150 lines; `.gitignore` and `README.md`).
+5. Show the file tree, a table of tools with their Google API calls, confirmation that no tool sends or deletes anything, and `.gitignore` contents.
+6. Write and run `test_server.py` with `uv` to list tools and call `list_events(days_ahead=1)`.
+7. Add `gmail-calendar` to `.agents/mcp_config.json` using `uv` and `GOOGLE_PRIVATE_DIR`.
+8. Check what is in the calendar tomorrow.
+9. Write a Gmail draft to myself (`"L06 test"`) and add a calendar event today 4 hours from now (`"MCP works"`).
+10. Find a free hour tomorrow between `09:00` and `17:00` and add an event called `"Study group"`.
+11. Ask to send the `"L06 test"` draft (verifying the server refuses/has no send tool).
+12. Ask to delete the `"Study group"` event (verifying the server refuses/has no delete tool).
+13. Initialize a Git repository, verify `git status` excludes secret files, and commit.
+14. Audit all tracked files and Git history for secrets, API keys, OAuth tokens, email addresses, and personal paths.
+15. Prepare the repository for public GitHub publication (portable paths in `README.md` and `test_server.py`, exclude `.agents/mcp_config.json` from Git while keeping it locally, rewrite Git history with a GitHub noreply email, and verify the MCP server).
+16. Connect the local Git repository to the GitHub remote and attempt to push `main`.
+17. Check whether GitHub CLI (`gh`) is installed and check `gh auth status`.
+18. Create `reflection.md` with four empty sections, add the list of prompts used today to `README.md`, and commit.
