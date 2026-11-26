@@ -54,6 +54,16 @@ No tool sends emails or deletes emails/events.
 5. `find_free_slots(date, duration_minutes=30)` — Find free slots on `YYYY-MM-DD` between `08:00` and `20:00` (`Asia/Jerusalem`).
 6. `create_event(title, start, end, description="")` — Create a calendar event in `Asia/Jerusalem` (accepts ISO-8601 timestamps).
 
+## Execution Results
+
+![Gmail Draft](screenshots/gmail-draft.png)
+
+צילום מסך של טיוטת המייל `"L06 test"` שנוצרה ב-Gmail באמצעות הכלי `create_draft` (טיוטה בלבד, ללא שליחה).
+
+![Google Calendar Event](screenshots/calendar-event.png)
+
+צילום מסך של האירוע `"MCP Assignment Test"` שנוצר ב-Google Calendar לתאריך 27 בנובמבר 2026 בין השעות `10:00–11:00` (`Asia/Jerusalem`) באמצעות הכלי `create_event`.
+
 ## Prompts Used Today
 
 1. Check the working folder and whether it is empty.
